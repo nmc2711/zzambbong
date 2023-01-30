@@ -1,38 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 하고 싶은 것은 모두 실험해보는 프론트엔드 개발 스타터 킷 : 짬뽕
 
-## Getting Started
+#### PNPM
 
-First, run the development server:
+먼저 모듈관리에 있어 `PNPM`을 채택하였다. <br />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+왜? <br />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`더 빠르기 때문이다.` 간단하게 의존성 디펜던시를 저장하는 방식 떄문이라고 할 수 있다.<br />
+예를 들어 본다면? 프로젝트에 REACT 18 버전을 설치한다고 가정한다. PNPM은 먼저 해당 버전의 REACT를<br />
+자체 글로벌 캐시에 다운로드한 node_modules에서 React를 설치함에 있어 사용된 연관 라이브러리에 대한 링크를 <br />생성한다. 그후 React가 Lodash와 같은 라이브러리를 필요로 한다면 동일한 방법으로 Lodash에 대한 링크를 생성한다.
+여기서 이제 속도의 문제가 나온다. 설치하는 REACT 버전이 사용하는 서트파티라이브러리가 중복적으로 Lodash를 <br />사용해야한다고 가정할 때, 이제 직접으로 Lodash를 설치하는 것이 아닌 글로벌 캐시의 저장된 Lodash 다운로드 링크를
+사용하기 때문에 초기 설치가 빨라진다.<br /><br />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`재설치` 개발을 하다보면 알수없는 패키지 이슈가 있을때 node_modules를 날려보곤 한다.<br />
+pnpm은 가능한 경우 캐시의 모든 종속성을 다시 재사용하므로 재설치가 빠르다.<br />
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+그 이외에도 pnpm은 구조적은 none-flat directory를 사용하기 때문에,<br />
+모듈에 대한 전역저장소와 프로젝의 저장소를 심볼릭 링크로 만들어 각각의 프로젝트에 대한 중복되는 패키지를<br />
+생성하는 것이 아닌 전역 저장소에 엑세스하는 방식을 취해 디스크 절약에 효과적일 수 있다고 본다.<br />
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+하지만 정말 오래된 라이브러리를 사용하거나 오래된 환경에서 pnpm 또는 얀베리를 도입하는 것은 매우 고심해야할 일이다.<br />
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
