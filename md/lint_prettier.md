@@ -8,7 +8,7 @@ ESLint는 Javascript, Typescript의 커스텀 룰에 대한 실시간 스파잉�
 치명적이거나 잠재적 문제를 방지하는 목적으로 활용한다.<br />
 
 ```
- pmpx eslint --init
+ pnpx eslint --init
 ```
 
 <br />
@@ -50,13 +50,18 @@ module.exports = {
 ```
 
 <br />
-1. parser(파서)
+
+<b>1. parser(파서)</b>
+
 <br />
+
 ESLint는 구문 분석을 위해 기본적으로 Espree 파서를 사용한다.
 
-이외에도, Babel과 함께 사용되는 babel-eslint, TS 구문 분석을 위해 사용되는 @typescript-eslint/parser 등이 있다.
-<br /> 2. parserOptions(파서 옵션)
+이외에도, Babel과 함께 사용되는 babel-eslint, TS 구문 분석을 위해 사용되는 @typescript-eslint/parser 등이 있다.<br />
 
+<b>2. parserOptions(파서 옵션)</b>
+
+<br />
 ESLint 사용을 위해 지원하려는 Javascript 언어의 옵션을 지정할 수 있다. 버전 및 모듈사용 여부 등을 설정한다.
 <br />
 ecmaVersion : 사용할 ECMAScript 버전 설정<br />
@@ -66,12 +71,17 @@ globalReturn - 전역 스코프 사용 여부 (node, common.js 환경에서 최�
 impliedStric - strict mode 사용 여부<br />
 jsx - ECMAScript 규격의 JSX 사용 여부<br />
 
-3. plugins(플러그인)
-   <br />
-   ESLint 문법이 정의된 npm 모듈이다. 통상, eslint-plugin-[플러그인 이름] 으로 명명된다.<br />
+<br />
 
-4. extends(확장)
-   <br />
+<b>3. plugins(플러그인)</b>
+
+<br />
+ESLint 문법이 정의된 npm 모듈이다. 통상, eslint-plugin-[플러그인 이름] 으로 명명된다.<br />
+<br />
+
+<b>4. extends(확장)</b>
+
+<br />
    extends는 추가한 플러그인을 사용할 규칙을 설정한다.
    <br />
    플러그인은 일련의 규칙의 집합이며, 플러그인을 추가하여도 모든 규칙이 적용되지 않는다.
@@ -91,9 +101,11 @@ jsx - ECMAScript 규격의 JSX 사용 여부<br />
   ],
 }
 ```
-
-5. rules(규칙)
+  <br />
+  
+<b>5. rules(규칙)</b>
    <br />
+    <br />
    ESLint에는 프로젝트에서 사용하는 규칙을 수정할 수 있다. 규칙은 기본적으로 아래 옵션과, 추가옵션은 배열 리터럴 구문으로 지정한다.
    <br />
    "off" 또는 0 : 규칙을 사용하지 않음<br />
@@ -112,11 +124,16 @@ jsx - ECMAScript 규격의 JSX 사용 여부<br />
 }
 ```
 
-6. env(환경) <br />
+<b>6. env(환경)</b>
+ 
+<br />
 
    env는 global 객체를 ESLint가 인식하게 하는 부분으로, 대표적으로 "browser": true 로 설정하면 window 혹은 document 로 할당되는 것이다.<br />
+<br />
 
-7. settings <br />
+<b>7. settings</b>
+
+<br />
 
 모든 규칙에 의해 공유되는 설정을 하는 부분이며, 대표적으로는 절대경로를 src 폴더에서 사용하기 위해 설정하는 경우가 있다.
 <br />
