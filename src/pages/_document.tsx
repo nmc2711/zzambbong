@@ -1,4 +1,10 @@
-import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
+import NextDocument, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 
 import { ServerStyleSheet } from 'styled-components';
 import { CssBaseline } from '@nextui-org/react';
@@ -6,7 +12,7 @@ import { CssBaseline } from '@nextui-org/react';
 import type { AppProps, AppType } from 'next/app';
 
 class Document extends NextDocument {
-  static async getInitialProps(ctx: any) {
+  static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
