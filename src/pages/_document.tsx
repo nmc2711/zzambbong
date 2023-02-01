@@ -1,6 +1,7 @@
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
 
 import { ServerStyleSheet } from 'styled-components';
+import { CssBaseline } from '@nextui-org/react';
 
 import type { AppProps, AppType } from 'next/app';
 
@@ -38,6 +39,7 @@ class Document extends NextDocument {
           <link rel='icon' href='/favicon.ico' sizes='any' />
           <link rel='icon' href='/icon.svg' type='image/svg+xml' />
           <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+          {CssBaseline.flush()}
         </Head>
         <body>
           <Main />
