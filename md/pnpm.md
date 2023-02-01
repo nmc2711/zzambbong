@@ -1,5 +1,9 @@
 #### PNPM
 
+```
+pnpm create next-app --typescript
+```
+
 먼저 모듈관리에 있어 `PNPM`을 채택하였다. <br />
 
 왜? <br />
