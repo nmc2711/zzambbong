@@ -1,5 +1,8 @@
 ## 하고 싶은 것은 모두 실험해보는 프론트엔드 Playground : 짬뽕
 
+https://medium.com/me/stories/public
+미디엄 작성과 함께 
+
 #### Basic structure
 
 src<br />
