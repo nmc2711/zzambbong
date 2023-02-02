@@ -1,4 +1,6 @@
 import { NextUIProvider } from '@nextui-org/react';
+import { Provider } from 'jotai';
+
 import type { AppPropsWithLayout } from '../type';
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
@@ -7,9 +9,11 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return (
     <div>
       {getLayout(
-        <NextUIProvider>
-          <Component {...pageProps} />
-        </NextUIProvider>
+        <Provider>
+          <NextUIProvider>
+            <Component {...pageProps} />
+          </NextUIProvider>
+        </Provider>
       )}
     </div>
   );
